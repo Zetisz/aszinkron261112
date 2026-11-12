@@ -20,10 +20,17 @@ function displayColors() {
         div.textContent = adat.name;
         div.style.alignContent = "center";
         div.style.textAlign = "center";
+        div.classList.add("pointer") // nem mukszik
 
         if (adat.textColor == "light"){
             div.style.color = "whitesmoke";
         }
+        
+        div.addEventListener("click", () => {
+            adatok.splice(0, 0, adatok.splice(adatok.indexOf(div), 1)[0]);
+            main.innerHTML = "";
+            displayColors();
+        });
 
         main.appendChild(div);
     }
